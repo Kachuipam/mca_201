@@ -175,6 +175,8 @@ int main()
 				st.print();
 				break;	
 			default:
+				if(ch!='e')
+					cout<<"INVALID! OPTION\n";
 				break;
 		};
 	}
