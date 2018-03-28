@@ -115,3 +115,11 @@ class SLinkedList {
 			}
 		};
 };
+
+int main()
+{
+	SLinkedList sll;
+	string str;
+	cout<<"Enter element "sll.addFront(str)"\n";
+	sll.print();
+} 
