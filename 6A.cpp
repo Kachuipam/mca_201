@@ -1,3 +1,6 @@
+#include<iostream>
+#include<string>
+using namespace std;
 class SNode { 
 	/*   			
 	objective: Create a class for a Node for Single Linked list
@@ -34,7 +37,7 @@ class SLinkedList {
 		{
 			delete head;
 		};
-		bool empty() const; 					// is list empty?
+		bool empty() const 					// is list empty?
 		{
 	        if(head==NULL)
 			  	return true;
@@ -45,24 +48,24 @@ class SLinkedList {
 		{
 		 	if(head==NULL)
 	 		{
-		  	    return -1;
+		  	    return 0;
 	 		}	
 	 		else
 	 		{
 	 			return head->elem;
 	 		}
 		};
-		void addFront(const string& e); 		// add to front of list
+		void addFront(const string& e) 		// add to front of list
 		{
-			SNode newNode = new SNode;
+			SNode *newNode = new SNode;
 			newNode->elem=e;
 			newNode->next=head;
 			head=newNode;
 		}
-		void addBack(const string& e); 			// add to back of list
+		void addBack(const string& e) 			// add to back of list
 		{
-			SNode temp = new SNode;
-			Snode newNode = new SNode;
+			SNode *temp = new SNode;
+			SNode *newNode = new SNode;
 			newNode->elem=e;
 			newNode->next=NULL;
 			temp=head;
@@ -72,27 +75,29 @@ class SLinkedList {
 				temp->next=newNode;
 			}
 		};
-		void removeFront();			 			// remove from front
+		void removeFront()			 			// remove from front
 		{
-			SNode temp = new SNode; 
+			SNode *temp = new SNode; 
 			if(head==NULL)
 			   return;
-            if(head!=NULL&&next==NULL)
+            else if(head->next==NULL)
+            {
 				  cout<<"Element removed is "<<head;
 				  head==NULL;
+			}
  		    else
 		 	{
 		 		cout<<"Element removed is "<<head->elem;
 			 	head = head->next;
 			}
  		}; 
-		void removeEnd();						// remove from end
+		void removeEnd()						// remove from end
 		{
-			SNode newNode = new SNode;
+			SNode *temp = new SNode;
 			temp=head;
 			if(head==NULL)
 		        return;
-			if(head!=NULL&&next=NULL)
+			if(head->next=NULL)
 		 	    head==NULL;
 			while(temp->next!=NULL)
 			{
@@ -100,13 +105,13 @@ class SLinkedList {
 			}
 			temp->next=NULL;
 		};
-		void print(); 							// prints the SLL
+		void print() 							// prints the SLL
 		{
-			SNode newNode = new SNode;
+			SNode *temp = new SNode;
 			temp=head;
 			if(head==NULL)
 	            cout<<"Empty list \n";
-			if(nead!=NULL&&head->next==NULL)
+			if(head->next==NULL)
 			    cout<<"Element in the list is  "<<head<<"\n";
 			while(temp->next!=NULL)
 			{
@@ -120,6 +125,8 @@ int main()
 {
 	SLinkedList sll;
 	string str;
-	cout<<"Enter element "sll.addFront(str)"\n";
+	cout<<"Enter element \n";
+	cin>>str;
+	sll.addFront(str);
 	sll.print();
 } 
