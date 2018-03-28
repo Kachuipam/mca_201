@@ -52,7 +52,7 @@ class SLinkedList {
 	 		}	
 	 		else
 	 		{
-	 			return head->elem;
+	 			cout<<"Front Element is \t" <<head->elem<<"\n";
 	 		}
 		};
 		void addFront(const string& e) 		// add to front of list
@@ -66,15 +66,15 @@ class SLinkedList {
 		{
 			SNode *temp = new SNode; 
 			if(head==NULL)
-			   return;
+			   cout<<"Stack Underflow:\n";
             else if(head->next==NULL)
             {
-				  cout<<"Element removed is "<<head;
+				  cout<<"Element removed is "<<head->elem<<"\n";
 				  head==NULL;
 			}
  		    else
 		 	{
-		 		cout<<"Element removed is "<<head->elem;
+		 		cout<<"Element removed is "<<head->elem<<"\n";
 			 	head = head->next;
 			}
  		}; 
@@ -84,11 +84,12 @@ class SLinkedList {
 			temp=head;
 			if(head==NULL)
 	            cout<<"Empty Stack \n";
+	            
 			if(head->next==NULL)
-			    cout<<"Element in the Stack is  "<<head<<"\n";
+			    cout<<"Element in the Stack is  "<<head->elem<<"\n";
 			while(temp->next!=NULL)
 			{
-				cout<<"Elements in the Stack are "<<temp<<" ";
+				cout<<"Elements in the Stack are "<<temp->elem<<"\n ";
 				temp=temp->next;
 			}
 		};
@@ -119,11 +120,15 @@ int main()
 				st.removeFront();
 				break;
 			case '3':
-				cout<<"Front Element is \t"<<st.front()<<"\n";
+				st.front();
 				break;
 			case '4':
 				st.print();
 				break;	
+			default:
+				while(ch!='e')
+					cout<<"INVALID!\n";
+				break;
 		};
 	}
 	while(ch!='e');
