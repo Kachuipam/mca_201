@@ -101,4 +101,17 @@ class SLinkedList {
 			temp->next=NULL;
 		};
 		void print(); 							// prints the SLL
+		{
+			SNode newNode = new SNode;
+			temp=head;
+			if(head==NULL)
+	            cout<<"Empty list \n";
+			if(nead!=NULL&&head->next==NULL)
+			    cout<<"Element in the list is  "<<head<<"\n";
+			while(temp->next!=NULL)
+			{
+				cout<<"Elements in the list are "<<temp<<" ";
+				temp=temp->next;
+			}
+		};
 };
