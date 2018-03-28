@@ -61,7 +61,7 @@ class SLinkedList {
 			newNode->elem=e;
 			newNode->next=head;
 			head=newNode;
-		}
+		};
 		void addBack(const string& e) 			// add to back of list
 		{
 			SNode *temp = new SNode;
@@ -82,12 +82,12 @@ class SLinkedList {
 			   return;
             else if(head->next==NULL)
             {
-				  cout<<"Element removed is "<<head;
+				  cout<<"Element removed is "<<head->elem;
 				  head==NULL;
 			}
  		    else
 		 	{
-		 		cout<<"Element removed is "<<head->elem;
+		 		cout<<"Element removed is "<<head->elem<<"\n";
 			 	head = head->next;
 			}
  		}; 
@@ -112,12 +112,14 @@ class SLinkedList {
 			if(head==NULL)
 	            cout<<"Empty list \n";
 			if(head->next==NULL)
-			    cout<<"Element in the list is  "<<head<<"\n";
+			    cout<<"Element in the list is  "<<head->elem<<"\n";
 			while(temp->next!=NULL)
 			{
-				cout<<"Elements in the list are "<<temp<<" ";
+				cout<<"Elements in the list are "<<temp->elem;
 				temp=temp->next;
 			}
+			if (temp!=NULL)
+   				cout<<" "<<temp->elem<<"\n";
 		};
 };
 
@@ -128,5 +130,15 @@ int main()
 	cout<<"Enter element \n";
 	cin>>str;
 	sll.addFront(str);
+	cout<<"Enter element \n";
+	cin>>str;
+	sll.addFront(str);
+	cout<<"Front element is\t"<<sll.front()<<"\n";
+	sll.print();
+	sll.removeFront();
+	sll.print();
+	cout<<"Enter element \n";
+	cin>>str;
+	sll.addBack(str);
 	sll.print();
 } 
