@@ -48,7 +48,7 @@ class SLinkedList {
 		{
 		 	if(head==NULL)
 	 		{
-		  	    return 0;
+		  	    return NULL;
 	 		}	
 	 		else
 	 		{
@@ -62,19 +62,28 @@ class SLinkedList {
 			newNode->next=head;
 			head=newNode;
 		};
+		
 		void addBack(const string& e) 			// add to back of list
 		{
 			SNode *temp = new SNode;
 			SNode *newNode = new SNode;
 			newNode->elem=e;
 			newNode->next=NULL;
-			temp=head;
-			while(temp->next!=NULL)
+			if(head==NULL)
 			{
-				temp=temp->next;
-				temp->next=newNode;
+				head=newNode;
+			}
+			else
+			{
+				temp=head;
+				while(temp->next!=NULL)
+				{
+					temp=temp->next;
+					temp->next=newNode;
+				}
 			}
 		};
+		
 		void removeFront()			 			// remove from front
 		{
 			SNode *temp = new SNode; 
@@ -91,7 +100,7 @@ class SLinkedList {
 			 	head = head->next;
 			}
  		}; 
-		void removeEnd()						// remove from end
+		void removeBack()						// remove from end
 		{
 			SNode *temp = new SNode;
 			temp=head;
@@ -126,19 +135,51 @@ class SLinkedList {
 int main()
 {
 	SLinkedList sll;
-	string str;
-	cout<<"Enter element \n";
-	cin>>str;
-	sll.addFront(str);
-	cout<<"Enter element \n";
-	cin>>str;
-	sll.addFront(str);
-	cout<<"Front element is\t"<<sll.front()<<"\n";
-	sll.print();
-	sll.removeFront();
-	sll.print();
-	cout<<"Enter element \n";
-	cin>>str;
-	sll.addBack(str);
-	sll.print();
+	string elem;
+	char ch;
+	do
+	{
+		cout<<"-----------------MENU-----------------\n";
+		cout<<"1.Add Front\n";
+		cout<<"2.Add Back\n";
+		cout<<"3.Remove Front\n";
+		cout<<"4.Remove Back\n";
+		cout<<"5.Print List\n";
+		cout<<"6.Print Front\n";
+		cout<<"----------------Enter E to exit----------------\n";
+		cout<<"-->>\t";
+		cin>>ch;
+		switch(ch)
+		{
+			case '1' :
+				cout<<"Enter element to add\t\n";
+				cin>>elem;
+				sll.addFront(elem);
+				break;
+			case '2' :
+				cout<<"Enter element to add in back\t\n";
+				cin>>elem;
+				sll.addBack(elem);
+				break;
+			case '3' :
+				sll.removeFront();
+				break;
+			case '4' :
+				sll.removeBack();
+				break;
+			case '5' :
+				sll.print();
+				break;
+			case '6' :
+				cout<<"Front element is \t"<<sll.front()<<"\n";
+				break;
+			default :
+				if(ch!='e')
+				{
+					cout<<"Invalid Option! \n";
+				}
+				break;
+		};
+	}
+	while(ch!='e');
 } 
